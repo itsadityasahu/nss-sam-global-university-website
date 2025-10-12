@@ -1,0 +1,804 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plain Light';
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(14, 14, 14);
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#page1{
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-color: rgb(14, 14, 14);
+    margin-bottom: 4vw;
+}   
+    
+
+#nav{
+    position: absolute;
+    height: 10vh;
+    width: 90%;
+    padding: 2vw 2vw;
+    background-color: #ffffffef;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1vw;
+    z-index: 99999;
+    top: 2%;
+    left: 50%;
+    /* margin-left: 5vw; */
+    transform: translateX(-50%);
+    
+}
+
+#nav-left{
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-start; */
+}
+
+#nav-left img{
+    height: 7vh;
+    margin-right: 1vw;
+}
+
+#nav-left h4{
+    font-size: 2vw;
+    text-transform: uppercase;
+    /* color: #4caf50; */
+    font-weight: 900;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #2e7d32, #4caf50, #81c784, #2e7d32);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientSlide 5s linear infinite;
+  font-weight: 900;
+}
+
+@keyframes gradientSlide {
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
+}
+
+
+
+#nav-right{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+#nav-right a{
+    font-size: 1vw;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+
+/* Slideshow Container */
+.slideshow {
+  position: relative;
+}
+
+/* Slide Container */
+.slide {
+  position: absolute;
+  min-width: 100%;
+  height: 99.5vh;
+  opacity: 0;
+  /* transition: opacity 1.5s  ease-in-out; */
+}
+
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Slide Image */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 80%;
+}
+
+
+/* 🖤 Dark Overlay Layer (for bright text visibility) */
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); 
+  z-index: 1;
+  backdrop-filter: blur(0.3px);
+}
+
+/* Text & Button Overlay */
+.overlay {
+  height: fit-content;
+  width: 80%;
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  z-index: 999;
+  /* background-color: red; */
+  gap: 1vw;
+}
+
+.overlay h4{
+    font-size: 4vw;
+    color: #fff;
+    text-transform: uppercase;
+    
+}
+.overlay h5{
+    font-size: 3vw;
+    color: #4caf50;
+    text-transform: uppercase;
+}
+
+.overlay p{
+    width: 56%;
+    margin-left: 22%;
+    font-size: 1.3vw;
+    color: #fff;
+}
+
+/* Join Now Button */
+ .overlay a{
+            text-decoration: none;
+            color: #fff;
+            border: none;
+            padding: 1vw 2vw;
+            font-size: 1vw;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: fit-content;
+            margin-left: 45%;
+}
+
+.btn-animated {
+  background: linear-gradient(90deg, #2e7d32, #4caf50, #81c784, #2e7d32);
+  background-size: 300%;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-animated:hover {
+  animation: btnGradientMove 3s linear infinite;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+}
+
+@keyframes btnGradientMove {
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
+}
+
+
+/* Navigation Buttons */
+button {
+  position: absolute;
+  transform: translateY(700%);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgb(32, 32, 32);
+  border: none;
+  font-size: 1.5vw;
+  padding: 0.521vw 1.042vw;
+  cursor: pointer;
+  border-radius: 100%;
+  transition: background 0.3s;
+  z-index: 3;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.prev {
+  left: 0.5vw;
+}
+
+.next {
+  right: 0.5vw;
+}
+
+#page2{
+  min-height: 100vh;
+  width: 100vw;
+  padding: 4vw 12vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#page2 h1{
+  font-size: 5vw;
+  color: #fff;
+  /* margin-left: -3vw; */
+  position: absolute;
+  left: 16.5%;
+  top: 4%;
+}
+
+.video-container {
+  position: relative;
+  height: 78vh;
+  /* width: fit-content;   */
+  cursor: default; 
+  overflow: hidden; 
+  margin-top: 4vw;
+  margin-bottom: -4vw;
+}
+
+
+.video-container:hover {
+  cursor: none; /* Hide cursor on mouse enter (hover) */
+}
+
+#myVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: top;
+  display: block;
+} 
+
+
+#pauseOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./first.png'); /* Replace with your image URL/path */
+  background-size: cover; /* Or 'contain' to fit without cropping */
+  background-position: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 2; /* Above video but below button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); 
+  z-index: 2;
+  backdrop-filter: blur(0.3px);
+}
+#pauseOverlay.hidden {
+  opacity: 0;
+  pointer-events: none; /* Allow clicks through when hidden */
+}
+
+/* Play/Pause Button (Centered, only visible when paused or on hover when playing) */
+#playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 5vw; /* Responsive width based on viewport */
+  height: 5vw; /* Matching height */
+  font-size: 2vw; /* Responsive font size */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15; /* Above overlay and video */
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+#playButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#playButton.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#page3{
+  min-height: 100vh;
+  width: 100vw;
+  padding: 4vw 12vw;
+  position: relative;
+  /* background-color: azure; */
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 2vw;
+}
+
+#up{
+  /* height: 45%; */
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+
+}
+
+#up h1{
+  font-size: 5vw;
+  margin-bottom: 1vw;
+  color: #fff;
+  font-weight: 800;
+}
+
+#up p{
+  font-size: 1.3vw;
+  text-align: center;
+  font-weight: 400;
+  color: #ffffffc1;
+  line-height: 1.8vw;
+}
+
+#down{
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: -2vw;
+  gap: 6vw;
+}
+.vision-card {
+            background: #1A1A1A;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.142);
+            padding: 3vw;
+            width: 35vw; /* Responsive width using viewport width */
+            min-height: 50vh; /* Minimum height using viewport height for better scaling */
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 0.5px solid #ffffff3b;
+        }
+
+.vision-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px #ffffff48;
+        }
+
+        .vision-svg {
+            width: 10vw; /* Responsive SVG size using viewport width */
+            height: 10vw; /* Square aspect ratio for the icon */
+            /* max-width: 80px; 
+            max-height: 80px; */
+            margin: 0 auto 16px;
+            display: block;
+            transition: stroke-width 0.3s ease, stroke 0.3s ease;
+            flex-shrink: 0; /* Prevent SVG from shrinking too much */
+            margin-top: -2vw;
+        }
+
+        .vision-card:hover .vision-svg {
+            stroke-width: 3;
+            stroke: #4caf50; /* Green stroke on hover for effect */
+        }
+
+        .vision-svg path {
+            fill: none;
+            stroke: #ccc; /* Default gray stroke */
+            stroke-width: 2;
+            transition: stroke-width 0.3s ease, stroke 0.3s ease;
+        }
+
+        .vision-svg circle {
+            transition: fill 0.3s ease; /* Smooth transition for iris if needed */
+        }
+
+        .vision-title {
+            font-size: 3vw;
+            font-weight: 600;
+            color: #fff;
+            margin-top: -2vw;
+            margin-bottom: 1.5vw;
+            flex-grow: 0;
+        }
+
+        .vision-text {
+            font-size: 1.2vw;
+            color: #ffffffc1;
+            line-height: 1.5;
+            flex-grow: 1; /* Allow text to expand within the card */
+            text-align: center;
+        }
+
+        .mission-svg {
+            width: 5vw; /* Responsive SVG size using viewport width */
+            height: 5vw; /* Square aspect ratio for the icon */
+            /* max-width: 80px; 
+            max-height: 80px; */
+            margin: 0 auto 16px;
+            display: block;
+            transition: stroke-width 0.3s ease, stroke 0.3s ease;
+            flex-shrink: 0; /* Prevent SVG from shrinking too much */
+            margin-bottom: 3vw;
+            margin-top: 1vw;
+        }
+
+        .mission-card:hover .mission-svg {
+            stroke-width: 3;
+            stroke: #4caf50; /* Green stroke on hover for effect */
+        }
+        .mission-svg circle {
+            fill: none;
+            stroke: #ccc; /* Default gray stroke */
+            stroke-width: 2;
+            transition: stroke-width 0.3s ease, stroke 0.3s ease;
+        }
+        .mission-svg .center-circle {
+            fill: #4caf50; /* Green fill for the bullseye center */
+            stroke: #4caf50;
+            stroke-width: 2;
+        }
+
+        
+
+#page4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    /* padding: 20vw 12vw; */
+    gap: 2vw;
+    /* margin-top: -2vw; */
+}
+
+/* Heading */
+#page4 h1 {
+    font-size: 5vw;
+    color: #fff;
+    /* margin-bottom: 3vh; */
+    font-weight: bold;
+
+}
+
+/* Main card container */
+.reach-card {
+    background-color: #1A1A1A;
+    border-radius: 15px;
+    padding: 4vw 3vw;
+    box-shadow: 0 4px 20px  rgba(255, 255, 255, 0.142);
+    width: 76vw;
+    height: auto;
+    text-align: center;
+    border: 0.5px solid #ffffff3b;
+}
+
+
+
+/* Stats container - flex grid */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 4vw;
+}
+
+/* Individual stat item */
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15vw;
+    height: 20vh;
+    padding: 1vh 1vw;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Icon styling */
+.icon {
+    width: 4.5vw;
+    height: 4.5vw;
+    margin-bottom: 1vh;
+    transition: filter 0.3s ease;
+}
+
+/* Counter styling */
+.counter {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffffc1;
+    margin-bottom: 0.5vh;
+    transition: color 0.3s ease;
+    min-height: 2.5rem; /* Ensures consistent spacing during animation */
+}
+
+/* Label styling */
+.stat-item p {
+    font-size: 1.3vw;
+    text-align: center;
+    font-weight: 550;
+    color: #ffffffc1;
+    margin: 0;
+}
+
+/* Hover effects */
+.stat-item:hover .counter  {
+    color: #4caf50; /* Blue color for numbers */
+}
+
+.stat-item:hover p {
+    color: #4caf50; /* Blue color for numbers */
+}
+
+
+
+#page5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    /* padding: 20vw 12vw; */
+    gap: 2vw;
+}
+
+/* Heading */
+#page5 h1 {
+    font-size: 5vw;
+    color: #fff;
+    /* margin-bottom: 3vh; */
+    font-weight: bold;
+
+}
+
+/* Main card container */
+.reach-card5 {
+    background-color: #1A1A1A;
+    border-radius: 15px;
+    padding: 4vw 3vw;
+    box-shadow: 0 4px 20px  rgba(255, 255, 255, 0.142);
+    width: 76vw;
+    height: auto;
+    text-align: center;
+    border: 0.5px solid #ffffff3b;
+}
+
+
+
+/* Stats container - flex grid */
+.stats5 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    /* gap: 4vw; */
+}
+
+/* Individual stat item */
+.stat-item5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: 10vw; */
+    height: 15vh;
+    padding: 1vh 1vw;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-item5 h4{
+  font-size: 1vw;
+  color: #ffffffc1;
+  font-weight: 600;
+}
+
+.stat-item5 a{
+  text-decoration: none;
+}
+
+.stat-item5 :hover {
+    transform: scale(1.05);
+}
+
+/* Icon styling */
+.icon5 {
+    width: 7vw;
+    height: 7vw;
+    margin-bottom: 1vh;
+    transition: filter 0.3s ease;
+}
+
+
+#page6{
+            min-height: 100vh;
+            width: 100vw;
+        }
+
+        .container {
+            width: 100vw;
+            padding: 4vw 12vw;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 5vw;
+            margin-bottom: 2vw;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.3vw;
+            line-height: 1.6;
+            color: #ffffffc1;
+            margin-bottom: 2vw;
+        }
+
+        .marquee-container {
+            position: relative;
+            width: 100%;
+            height: 30vw;
+            overflow: hidden;
+            background-color: rgb(14, 14, 14);
+            /* border-radius: 10px; */
+            /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+            margin-bottom: 4vw;
+        }
+
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            animation: scroll 30s linear infinite;
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-item {
+            flex: 0 0 20vw;
+            height: 20vw;
+            margin: 0 1vw;
+        }
+
+        .marquee-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Duplicate content for seamless infinite scroll */
+        .marquee-content {
+            width: 200%; /* For 8 items + duplicate */
+        }
+
+        .marquee-content > div:nth-child(9) {
+            margin-left: 0; /* Reset margin for duplicate set start */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Blur only the content on hover */
+        .marquee-container:hover .marquee-content {
+            filter: blur(1.3px);
+            transition: filter 0.3s ease;
+        }
+
+        /* Overlay on hover with fade transition only */
+        .overlay2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .marquee-container:hover .overlay2 {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        #over-text{
+            margin-top: 10.85vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            color: white;
+            pointer-events: none;
+            /* z-index: 10; */
+        }
+
+        .marquee-container:hover #over-text {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        #over-text h2 {
+            font-size: 2vw;
+            font-weight: 550;
+            text-align: center;
+            margin-bottom: 0.8vw;
+        }
+
+        #over-text h3{
+            font-size: 1.5vw;
+            margin-bottom: 1vw;
+            font-weight: 200;
+            text-align: center;
+            color: #ffffffc1 ;
+        }
+
+        #over-text a {
+            text-decoration: none;
+            color: #fff;
+            border: none;
+            padding: 1vw 2vw;
+            font-size: 1vw;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+      
