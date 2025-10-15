@@ -1,0 +1,28 @@
+# Ignore video files
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Ignore large image files (optional)
+*.psd
+*.tiff
+*.bmp
+
+# Ignore temporary and system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE and editor settings
+.vscode/
+.idea/
+
+# Ignore build or cache folders
+node_modules/
+dist/
+build/
+
+# Ignore backups
+*.zip
+*.rar
+*.7z
