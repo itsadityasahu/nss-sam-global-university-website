@@ -1,251 +1,185 @@
-function slideAnimation(){
-  const slides = document.querySelectorAll('.slide');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-let index = 0;
+document.addEventListener("DOMContentLoaded", () => {
 
-// GSAP Animation Function
-function animateSlide(slide) {
-  const text = slide.querySelector('.overlay');
-//   const button = slide.querySelector('.join-btn');
+  // ---------- SLIDE ANIMATION (Home Page Only) ----------
+  const slides = document.querySelectorAll(".slide");
+  if (slides.length > 0) {
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
+    let index = 0;
 
-  gsap.fromTo(text, { y: 100, stagger:0.25, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" });
-//   gsap.fromTo(button, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" });
-}
-
-// Show Slide Function
-function showSlide(i) {
-  slides.forEach((slide, idx) => {
-    slide.classList.toggle('active', idx === i);
-  });
-  animateSlide(slides[i]);
-}
-
-// Button Controls
-nextBtn.addEventListener('click', () => {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-});
-
-prevBtn.addEventListener('click', () => {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-});
-
-// Auto Change Every 4 Seconds
-setInterval(() => {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}, 4000);
-
-// Initialize First Slide
-showSlide(index);
-}
-slideAnimation()
-
-function cursorAnimation(){
-      // Wait for DOM to be fully loaded before running the script
-document.addEventListener('DOMContentLoaded', function() {
-    const video = document.getElementById('myVideo');
-    const playButton = document.getElementById('playButton');
-    const pauseOverlay = document.getElementById('pauseOverlay');
-    const videoContainer = document.getElementById('videoContainer');
-
-    let hideTimeout; // For auto-hiding button when playing (after hover)
-    const HIDE_DELAY = 3000; // 3 seconds - adjust as needed
-
-    function updateButtonIcon() {
-        if (video.paused) {
-            playButton.innerHTML = '▶'; // Play icon when paused
-        } else {
-            playButton.innerHTML = '⏸'; // Pause icon when playing
-        }
+    function animateSlide(slide) {
+      if (!slide) return;
+      const text = slide.querySelector(".overlay");
+      if (text) {
+        gsap.fromTo(
+          text,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+        );
+      }
     }
 
-    function showPauseState() {
-        // When paused: Show overlay image and play button
-        pauseOverlay.classList.remove('hidden');
-        playButton.classList.remove('hidden');
-        clearTimeout(hideTimeout); // Clear any pending hide
+    function showSlide(i) {
+      slides.forEach((slide, idx) => slide.classList.toggle("active", idx === i));
+      animateSlide(slides[i]);
     }
 
-    function hidePauseState() {
-        // When playing: Hide overlay image and play button (unless hovered)
-        if (!video.paused) {
-            pauseOverlay.classList.add('hidden');
-            // Button hide is handled by timeout/events, not here
-        }
-    }
-
-    function showButton() {
-        playButton.classList.remove('hidden');
-    }
-
-    function hideButton() {
-        if (!video.paused) { // Only hide if playing
-            playButton.classList.add('hidden');
-        }
-    }
-
-    function togglePlay() {
-        if (video.paused) {
-            video.play(); // Resumes from the current position
-            // video.style.opacity = 1;
-            updateButtonIcon(); // Update to pause icon
-            hidePauseState(); // Hide image
-            // Button will auto-hide via timeout if no hover
-        } else {
-            video.pause(); // Pauses at the current position (video stops)
-            // video.style.opacity = 1;
-            updateButtonIcon(); // Update to play icon
-            showPauseState(); // Show image and button
-        }
-    }
-
-    // Attach click event listener to the button (replaces onclick)
-    playButton.addEventListener('click', togglePlay);
-
-    // Event Listeners for play/pause
-    video.addEventListener('play', function() {
-        updateButtonIcon();
-        hidePauseState(); // Hide image when playing
-        clearTimeout(hideTimeout); // Reset timeout
-        // Show button briefly on play start, then auto-hide
-        showButton();
-        hideTimeout = setTimeout(hideButton, HIDE_DELAY);
+    nextBtn?.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
     });
 
-    video.addEventListener('pause', function() {
-        updateButtonIcon();
-        showPauseState(); // Show image/button when paused
+    prevBtn?.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
     });
 
-    video.addEventListener('ended', function() {
-        // When video ends, treat as paused: show image/button for replay
-        updateButtonIcon();
-        showPauseState();
-    });
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }, 4000);
 
-    // Mouse cursor control and button reveal on hover
-    videoContainer.addEventListener('mouseenter', function() {
-        videoContainer.style.cursor ='default';
-        showButton(); // Always show button on hover (pause icon if playing)
-        clearTimeout(hideTimeout); // Reset auto-hide
-        if (!video.paused) {
-            // If playing, restart auto-hide timeout after hover
-            hideTimeout = setTimeout(hideButton, HIDE_DELAY);
-        }
-        // Note: Overlay stays hidden if playing; only button shows for pause
-    });
+    showSlide(index);
+  }
 
-    videoContainer.addEventListener('mouseleave', function() {
-        videoContainer.style.cursor = 'default';
-        if (!video.paused) {
-            // If playing, start auto-hide timeout on leave
-            hideTimeout = setTimeout(hideButton, HIDE_DELAY);
-        }
-    });
-
-    // Initial state: Video is paused, so show overlay image and play button
-    updateButtonIcon();
-    showPauseState();
-});
-
-}
-cursorAnimation()
-
-
-// Function to animate counters
-function animateCounters() {
-    const counters = document.querySelectorAll('.counter');
-
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const increment = target / 100; // Adjust for speed (higher = faster)
+  // ---------- COUNTER ANIMATION (About or Stats Page) ----------
+  const counters = document.querySelectorAll(".counter");
+  if (counters.length > 0) {
+    function animateCounters() {
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute("data-target"));
+        const increment = target / 100;
         let current = 0;
+
         const updateCounter = () => {
-            if (current < target) {
-                current += increment;
-                counter.textContent = Math.floor(current) + (target >= 1000 ? '+' : (target >= 100 ? '+' : '+')); // Format: 1000+ or 400+ etc.
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target + (target >= 1000 ? '+' : (target >= 100 ? '+' : '+')); // Final format
-            }
+          if (current < target) {
+            current += increment;
+            counter.textContent = Math.floor(current) + "+";
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target + "+";
+          }
         };
         updateCounter();
-    });
-}
+      });
+    }
 
-// Trigger animation on page load (or when card is visible)
-document.addEventListener('DOMContentLoaded', () => {
-    // Simple delay to simulate load
-    setTimeout(animateCounters, 500);
-});
-
-// Optional: Use Intersection Observer for better performance (animates only when in view)
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
             animateCounters();
             observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
 
-observer.observe(document.querySelector('.reach-card'));
+    const reachCard = document.querySelector(".reach-card");
+    if (reachCard) observer.observe(reachCard);
+  }
 
+  // ---------- ACTIVE NAV LINK (Works on All Pages) ----------
+  const navLinks = document.querySelectorAll(".nav-link");
+  let currentPath = window.location.pathname.split("/").pop();
 
+  // Fix for home or index
+  if (currentPath === "" || currentPath === "index.html") {
+    currentPath = "home.html"; // Change if your homepage file name is different
+  }
 
-
-// Smart Navbar Hide/Show on Scroll
-let lastScrollY = window.scrollY;
-let ticking = false; // For throttling
-
-function updateNavbar() {
-    const navbar = document.getElementById('navbar');
-    const currentScrollY = window.scrollY;
-
-    // If scrolling down (current > last), hide navbar
-    if (currentScrollY > lastScrollY && currentScrollY > 50) { // Threshold: hide only after 50px scroll
-        navbar.classList.add('hidden');
-    } 
-    // If scrolling up (current < last), show navbar
-    else if (currentScrollY < lastScrollY) {
-        navbar.classList.remove('hidden');
+  navLinks.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPath) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
     }
 
-    lastScrollY = currentScrollY;
-    ticking = false;
-}
-
-function requestTick() {
-    if (!ticking) {
-        requestAnimationFrame(updateNavbar);
-        ticking = true;
-    }
-}
-
-// Listen to scroll event (throttled)
-window.addEventListener('scroll', requestTick);
-
-// Mobile Menu Toggle (Optional: For responsiveness)
-const mobileMenu = document.getElementById('mobile-menu');
-const navMenu = document.querySelector('.nav-menu');
-
-mobileMenu.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking a link (optional enhancement)
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        navMenu.classList.remove('active');
+    // Add instant active effect when clicking (before reload)
+    link.addEventListener("click", () => {
+      navLinks.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
     });
+  });
+
+  // ---------- DEVELOPER TEAM BUTTON ----------
+  const developerBtn = document.getElementById("developerBtn");
+  if (developerBtn) {
+    developerBtn.addEventListener("click", () => {
+      window.location.href = "developer-team.html";
+    });
+  }
+
 });
 
-// Initial check (show navbar on load)
-window.addEventListener('load', () => {
-    document.getElementById('navbar').classList.remove('hidden');
+
+
+
+
+
+// ✅ Scroll to top + fade-in effect on reload or page open
+window.addEventListener("pageshow", function () {
+  // Scroll to top smoothly
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+  // Fade-in animation for the body
+  document.body.style.opacity = 0;
+  setTimeout(() => {
+    document.body.style.transition = "opacity 1s ease";
+    document.body.style.opacity = 1;
+  }, 100);
+});
+
+
+
+
+// ✅ NSS Loader + Scroll to Top + Fade In Effect
+window.addEventListener("pageshow", function () {
+  const loader = document.getElementById("page-loader");
+
+  // Show loader initially
+  if (loader) loader.classList.remove("hidden");
+
+  // Scroll to top on reload
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Fade in the body
+  document.body.style.opacity = 0;
+  setTimeout(() => {
+    document.body.style.transition = "opacity 1s ease";
+    document.body.style.opacity = 1;
+
+    // Hide loader after animation
+    setTimeout(() => {
+      if (loader) loader.classList.add("hidden");
+    }, 5000);
+  }, 600);
+});
+
+
+// 🌟 Typewriter effect for loader
+function typewriterEffect() {
+  const textEl = document.getElementById("typewriter-text");
+  const text = "Please wait... Loading NSS, SAM Global University";
+  let index = 0;
+
+  function type() {
+    if (index < text.length) {
+      textEl.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, 80); // typing speed in ms
+    }
+  }
+
+  type();
+}
+
+// Initialize typewriter when loader is visible
+window.addEventListener("pageshow", () => {
+  typewriterEffect();
 });
