@@ -283,6 +283,70 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(index);
   }
 
+  // ---------- VIDEO PLAY/PAUSE + CURSOR ANIMATION ----------
+  const video = document.getElementById('myVideo');
+  const playButton = document.getElementById('playButton');
+  const pauseOverlay = document.getElementById('pauseOverlay');
+  const videoContainer = document.getElementById('videoContainer');
+  if (video && playButton && videoContainer) {
+    let hideTimeout;
+    const HIDE_DELAY = 3000;
+
+    function updateButtonIcon() {
+      playButton.innerHTML = video.paused ? '▶' : '⏸';
+    }
+
+    function showPauseState() {
+      pauseOverlay?.classList.remove('hidden');
+      playButton.classList.remove('hidden');
+      clearTimeout(hideTimeout);
+    }
+
+    function hidePauseState() {
+      if (!video.paused) pauseOverlay?.classList.add('hidden');
+    }
+
+    function showButton() { playButton.classList.remove('hidden'); }
+    function hideButton() { if (!video.paused) playButton.classList.add('hidden'); }
+
+    function togglePlay() {
+      if (video.paused) {
+        video.play(); updateButtonIcon(); hidePauseState();
+      } else {
+        video.pause(); updateButtonIcon(); showPauseState();
+      }
+    }
+
+    playButton.addEventListener('click', togglePlay);
+
+    video.addEventListener('play', function() {
+      updateButtonIcon();
+      hidePauseState();
+      clearTimeout(hideTimeout);
+      showButton();
+      hideTimeout = setTimeout(hideButton, HIDE_DELAY);
+    });
+
+    video.addEventListener('pause', showPauseState);
+    video.addEventListener('ended', showPauseState);
+
+    videoContainer.addEventListener('mouseenter', () => {
+      videoContainer.style.cursor = 'default';
+      showButton();
+      clearTimeout(hideTimeout);
+      if (!video.paused) hideTimeout = setTimeout(hideButton, HIDE_DELAY);
+    });
+
+    videoContainer.addEventListener('mouseleave', () => {
+      videoContainer.style.cursor = 'default';
+      if (!video.paused) hideTimeout = setTimeout(hideButton, HIDE_DELAY);
+    });
+
+    // Initial state
+    updateButtonIcon();
+    showPauseState();
+  }
+
   // ---------- COUNTER ANIMATION ----------
   function startCounter(counter, duration = 2000) {
     const target = +counter.getAttribute("data-target");
@@ -314,11 +378,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".counter").forEach(counter => observer.observe(counter));
 
-  // ---------- ACTIVE NAV LINK ----------
+  const navbar = document.getElementById("navbar");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navMenu = document.querySelector(".nav-menu");
   const navLinks = document.querySelectorAll(".nav-link");
+  let lastScrollTop = 0;
+
+  // ---------- MOBILE MENU TOGGLE ----------
+  mobileMenu.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+    navMenu.classList.toggle("active");
+
+    // Change color of hamburger when active
+    if (mobileMenu.classList.contains("active")) {
+      mobileMenu.style.filter = "invert(58%) sepia(99%) saturate(3633%) hue-rotate(2deg) brightness(102%) contrast(104%)";
+    } else {
+      mobileMenu.style.filter = "none";
+    }
+  });
+
+  // ---------- CLOSE MENU ON LINK CLICK ----------
+  document.querySelectorAll(".nav-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+      navMenu.classList.remove("active");
+      mobileMenu.style.filter = "none"; // reset color
+    });
+  });
+
+  // ---------- NAVBAR HIDE/SHOW ON SCROLL ----------
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+      // Scrolling down → hide navbar
+      navbar.classList.add("hidden");
+    } else {
+      // Scrolling up → show navbar
+      navbar.classList.remove("hidden");
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  });
+
+  // ---------- ACTIVE NAV LINK ----------
   let currentPath = window.location.pathname.split("/").pop();
   if (currentPath === "" || currentPath === "index.html") {
-    currentPath = "index.html"; // adjust if your homepage filename is different
+    currentPath = "index.html"; // adjust if homepage file name differs
   }
 
   navLinks.forEach(link => {
@@ -340,6 +446,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  
+  // ---------- MOBILE CARD TAP BEHAVIOR ----------
+  const cards = document.querySelectorAll(".card");
+  cards.forEach(card => {
+    const link = card.querySelector("a");
+
+    card.addEventListener("click", (e) => {
+      // first tap shows overlay
+      if (!card.classList.contains("active")) {
+        e.preventDefault();
+        cards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+      } 
+      // second tap opens link
+      else if (link) {
+        window.open(link.href, "_blank");
+      }
+    });
+  });
+
+// ---------- FUNNY MOBILE TAP MESSAGE ----------
+  // Only show on mobile screens
+  if (window.innerWidth <= 768) {
+    // Only show if we are on the activities page
+    const currentPage = window.location.pathname.split("/").pop();
+    if (currentPage === "activities.html") {  // replace with your Activities page filename
+      const tapHint = document.createElement("div");
+      tapHint.className = "tap-hint";
+      tapHint.innerHTML = "👆 Tap once to see magic, tap twice to fly to Instagram! ✨";
+      document.body.appendChild(tapHint);
+    }
+  }
+  
+   
+  const reelVideo = document.getElementById("nssVideo");
+  const soundToggle = document.getElementById("soundToggle");
+
+  soundToggle.addEventListener("click", () => {
+      if (reelVideo.muted) {
+        reelVideo.muted = false;
+        soundToggle.textContent = "🔊";
+      } else {
+        reelVideo.muted = true;
+        soundToggle.textContent = "🔇";
+      }
+});
+
+
 });
 
 // ---------- SCROLL TO TOP ON PAGE RELOAD ----------
@@ -347,19 +501,3 @@ window.addEventListener("pageshow", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-
-
-
-
-const video = document.getElementById("nssVideo");
-const soundToggle = document.getElementById("soundToggle");
-
-soundToggle.addEventListener("click", () => {
-    if (video.muted) {
-        video.muted = false;
-        soundToggle.textContent = "🔊";
-    } else {
-        video.muted = true;
-        soundToggle.textContent = "🔇";
-    }
-});

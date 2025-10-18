@@ -7,21 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="nav">
-                <div id="nav-left">
-                    <img src="nss-logo.png" alt="">
-                    <h1 >NSS SAM Global University</h1>
+    <nav id="navbar" class="navbar">
+                <div class="nav-container">
+                    <div class="nav-logo">
+                        <img src="./asset/nss-logo.png" alt="">
+                        <h1 >NSS SAM Global University</h1> <!-- Logo or brand name -->
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link  menu-2">Home</a></li>
+                        <li><a href="about.html" class="nav-link  menu-2">About</a></li>
+                        <li><a href="activities.html" class="nav-link  menu-2">Activities</a></li>
+                        <li><a href="achievements.html" class="nav-link  menu-2">Achievements</a></li>
+                        <li><a href="blood-donation.html" class="nav-link  menu-2">Blood Donation</a></li>
+                        <li><a href="team.html" class="nav-link  menu-2">Team</a></li>
+                    </ul>
+                    <div class="nav-toggle" id="mobile-menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
                 </div>
-                <div class="nav-right menu-2">
-                    <a class="nav-link" href="index.html">home</a>
-                    <a class="nav-link" href="about.html">about</a>
-                    <a class="nav-link" href="team.html">team</a>
-                    <a class="nav-link" href="activities.html">activities</a>
-                    <a class="nav-link" href="achievements.html">achievements</a>
-                    <a class="nav-link" href="blood-donation.html">blood-donation</a>
-                </div>
-            </div>
-    
+            </nav>
     <div id="page3" data-scroll data-scroll-speed="0">
             <div id="up">
                 <h1>About Us</h1>
@@ -55,12 +61,11 @@
                 </div>
             </div>
         </div>
-
     <div class="parent">
         <!-- Left Div -->
         <div class="about-left-div">
             <video autoplay muted loop class="reel-video"  id="nssVideo">
-                <source src="about-video.mp4" type="video/mp4">
+                <source src="./asset/about-video.mp4" type="video/mp4">
                 Your browser does not support HTML5 video.
             </video>
             <!-- Gradient dark overlay on top of video -->
@@ -77,7 +82,7 @@
         <!-- Right Div -->
         <div class="about-right-div">
             <!-- NSS Logo -->
-            <div id="img-div"><img src="nss-logo.png" alt="NSS Logo" class="nss-logo"></div>
+            <div id="img-div"><img src="./asset/nss-logo.png" alt="NSS Logo" class="nss-logo"></div>
             <h2>Why Join the NSS?</h2>
             <div class="info">
                 <div class="info-item">
@@ -102,50 +107,48 @@
             <button class="unlock-btn">🌟 Unlock Your Potential - Join the NSS Today</button>
         </div>
     </div>
-
-
         <div id="page4">
             <h1>Our Reach</h1>
             <div class="reach-card">
                 <div class="stats">
                     <!-- Volunteers -->
                     <div class="stat-item">
-                        <img src="./volunteer.png" alt="Volunteers Icon" class="icon">
+                        <img src="./asset/volunteer.png" alt="Volunteers Icon" class="icon">
                         <div class="counter" data-target="1000">0</div>
                         <p>Volunteers</p>
                     </div>
 
                     <!-- Happy Children -->
                     <div class="stat-item">
-                        <img src="./happy children.png" alt="Happy Children Icon" class="icon">
+                        <img src="./asset/happy children.png" alt="Happy Children Icon" class="icon">
                         <div class="counter" data-target="400">0</div>
                         <p>Happy Children</p>
                     </div>
 
                     <!-- News Highlights -->
                     <div class="stat-item">
-                        <img src="./news.png" alt="News Highlights Icon" class="icon">
+                        <img src="./asset/news.png" alt="News Highlights Icon" class="icon">
                         <div class="counter" data-target="20">0</div>
                         <p>News Highlights</p>
                     </div>
 
                     <!-- Facebook Followers -->
                     <div class="stat-item">
-                        <img src="facebook.png" alt="Facebook Icon" class="icon">
+                        <img src="./asset/facebook.png" alt="Facebook Icon" class="icon">
                         <div class="counter" data-target="1000">0</div>
                         <p>Facebook Followers</p>
                     </div>
  
                     <!-- Youtube -->
                     <div class="stat-item">
-                        <img src="youtube.png" alt="Youtube Icon" class="icon">
+                        <img src="./asset/youtube.png" alt="Youtube Icon" class="icon">
                         <div class="counter" data-target="500">0</div>
                         <p>Youtube Followers</p>
                     </div>
 
                     <!-- Instagram -->
                     <div class="stat-item">
-                        <img src="instagram.png" alt="Instagram Icon" class="icon">
+                        <img src="./asset/instagram.png" alt="Instagram Icon" class="icon">
                         <div class="counter" data-target="1000">0</div>
                         <p>Instagram Followers</p>
                     </div>
@@ -157,25 +160,25 @@
             <div class="reach-card5">
                 <div class="stats">
                     <div class="stat-item5">
-                       <a href="https://mybharat.gov.in/"  target="_blank"><img src="./mybharat.png" alt="Volunteers Icon" class="icon5"></a> 
+                       <a href="https://mybharat.gov.in/"  target="_blank"><img src="./asset/mybharat.png" alt="Volunteers Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
-                       <a href="https://samayurveda.in/"  target="_blank"><img src="./sam ayurvedic.png" alt="Happy Children Icon" class="icon5"></a> 
+                       <a href="https://samayurveda.in/"  target="_blank"><img src="./asset/sam ayurvedic.png" alt="Happy Children Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
-                       <a href="https://redcrossmp.org/"  target="_blank"><img src="./INDIAN-RED-CROSS-SOCIETY-BL.png" alt="News Highlights Icon" class="icon5"></a> 
+                       <a href="https://redcrossmp.org/"  target="_blank"><img src="./asset/INDIAN-RED-CROSS-SOCIETY-BL.png" alt="News Highlights Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
-                       <a href="https://www.jnchrc.com/"  target="_blank"><img src="jawaharlal nehru cancer hospital.png" alt="Facebook Icon" class="icon5"></a> 
+                       <a href="https://www.jnchrc.com/"  target="_blank"><img src="./asset/jawaharlal nehru cancer hospital.png" alt="Facebook Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
-                        <a href="https://www.aiimsbhopal.edu.in/"  target="_blank"><img src="AIIMS Bhopal.png" alt="Youtube Icon" class="icon5"></a>
+                        <a href="https://www.aiimsbhopal.edu.in/"  target="_blank"><img src="./asset/AIIMS Bhopal.png" alt="Youtube Icon" class="icon5"></a>
                     </div>
                     <div class="stat-item5">
-                       <a href="https://bmhrc.ac.in/"  target="_blank"><img src="bmhrc.png" alt="Instagram Icon" class="icon5"></a> 
+                       <a href="https://bmhrc.ac.in/"  target="_blank"><img src="./asset/bmhrc.png" alt="Instagram Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
-                       <a href="https://aawaj.org/"  target="_blank"><img src="aawaj.png" alt="Instagram Icon" class="icon5"></a> 
+                       <a href="https://aawaj.org/"  target="_blank"><img src="./asset/aawaj.png" alt="Instagram Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
                        <a  href="https://www.instagram.com/nss_bu_bhopal_mp_/"  target="_blank"><h4>NSS BU Bhopal</h4></a> 
@@ -189,7 +192,6 @@
                 </div>
             </div>
         </div>        
-
     <footer class="footer">
             <div class="footer-container">
 

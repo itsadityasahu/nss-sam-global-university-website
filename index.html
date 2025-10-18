@@ -18,32 +18,39 @@
 </div> -->
 
     <div id="home">
+        <nav id="navbar" class="navbar">
+                <div class="nav-container">
+                    <div class="nav-logo">
+                        <img src="./asset/nss-logo.png" alt="">
+                        <h1 >NSS SAM Global University</h1> <!-- Logo or brand name -->
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link  menu-2">Home</a></li>
+                        <li><a href="about.html" class="nav-link  menu-2">About</a></li>
+                        <li><a href="activities.html" class="nav-link  menu-2">Activities</a></li>
+                        <li><a href="achievements.html" class="nav-link  menu-2">Achievements</a></li>
+                        <li><a href="blood-donation.html" class="nav-link  menu-2">Blood Donation</a></li>
+                        <li><a href="team.html" class="nav-link  menu-2">Team</a></li>
+                    </ul>
+                    <div class="nav-toggle" id="mobile-menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </nav>
         <div id="page1" data-scroll data-scroll-speed="0">
-            <div id="nav">
-                <div id="nav-left">
-                    <img src="nss-logo.png" alt="">
-                    <h1 >NSS SAM Global University</h1>
-                </div>
-                <div class="nav-right menu-2">
-                    <a class="nav-link" href="index.html">home</a>
-                    <a class="nav-link" href="about.html">about</a>
-                    <a class="nav-link" href="team.html">team</a>
-                    <a class="nav-link" href="activities.html">activities</a>
-                    <a class="nav-link" href="achievements.html">achievements</a>
-                    <a class="nav-link" href="blood-donation.html">blood-donation</a>
-                </div>
-            </div>
             <div class="slideshow">
 
                <!-- 🖼️ Slide 1 -->
                <div  class="slide active">
-                  <img src="./first.png" alt="NSS Event">
+                  <img src="./asset/first.png" alt="NSS Event">
                   <div class="dark-overlay"></div>
                   <div class="overlay">
                     
                         <h4> Welcome to NSS SAM Global University</h4>
                         <h5 class="gradient-text1" > Join the Movement of Service and Leadership</h5>
-                        <p>  Be a proud NSS volunteer — unite with us to serve society, build leadership skills, and make a real difference together.</p>
+                        <p id="para-txt">  Be a proud NSS volunteer — unite with us to serve society, build leadership skills, and make a real difference together.</p>
                         <a class="btn-animated" href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank" >Join Now</a>
                     
                   </div>
@@ -51,13 +58,13 @@
 
                <!-- 🖼️ Slide 2 -->
                <div class="slide">
-                  <img src="./second.png" alt="NSS Event">
+                  <img src="./asset/second.png" alt="NSS Event">
                   <div class="dark-overlay"></div>
                   <div class="overlay">
                     
                         <h4> An Honor That Inspires and Empowers Everyone </h4>
                         <h5 class="gradient-text1" > Inspiring hearts creating lasting impact</h5>
-                        <p> Recognized for outstanding contribution to nation building and social service.  
+                        <p id="para-txt"> Recognized for outstanding contribution to nation building and social service.  
                              Together, we serve, lead, and inspire change.</p>
                         <a  class="btn-animated" href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank" >Join Now</a>
                     
@@ -66,29 +73,25 @@
 
                <!-- 🖼️ Slide 3 -->
                <div class="slide">
-                  <img src="./third.png" alt="NSS Event">
+                  <img src="./asset/third.png" alt="NSS Event">
                   <div class="dark-overlay"></div>
                   <div class="overlay">
                     
                         <h4> Unity in Service Pride in Nation Forever </h4>
                         <h5 class="gradient-text1" >NSS - SAM Global University</h5>
-                        <p>Empowering youth to serve the nation with dedication, teamwork, and compassion.  
+                        <p id="para-txt">Empowering youth to serve the nation with dedication, teamwork, and compassion.  
                              Together we build a stronger, brighter India!</p>
                         <a class="btn-animated" href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank" class="join-btn">Join Now</a>
 
                   </div>
                </div>
-
-                <!-- Navigation Buttons -->
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
             </div>
         </div>
         <div id="page2" data-scroll data-scroll-speed="0">
-            <h1>Lookback Video 2024-25</h1>
+            <h1 id="looktxt">Lookback Video 2024-25</h1>
             <div class="video-container" id="videoContainer">
                 <div id="pauseOverlay"></div>
-                <video id="myVideo" src="./videoo1.mp4" preload="metadata">
+                <video id="myVideo" src="./asset/videoo1.mp4" preload="metadata">
                        Your browser does not support the video tag.
                 </video>
                 <div class="dark-over"></div>
@@ -135,42 +138,42 @@
                 <div class="stats">
                     <!-- Volunteers -->
                     <div class="stat-item">
-                        <img src="./volunteer.png" alt="Volunteers Icon" class="icon">
+                        <img src="./asset/volunteer.png" alt="Volunteers Icon" class="icon">
                         <div class="counter" data-target="1000">0</div>
                         <p>Volunteers</p>
                     </div>
 
                     <!-- Happy Children -->
                     <div class="stat-item">
-                        <img src="./happy children.png" alt="Happy Children Icon" class="icon">
+                        <img src="./asset/happy children.png" alt="Happy Children Icon" class="icon">
                         <div class="counter" data-target="400">0</div>
                         <p>Happy Children</p>
                     </div>
 
                     <!-- News Highlights -->
                     <div class="stat-item">
-                        <img src="./news.png" alt="News Highlights Icon" class="icon">
+                        <img src="./asset/news.png" alt="News Highlights Icon" class="icon">
                         <div class="counter" data-target="20">0</div>
                         <p>News Highlights</p>
                     </div>
 
                     <!-- Facebook Followers -->
                     <div class="stat-item">
-                        <img src="facebook.png" alt="Facebook Icon" class="icon">
+                        <img src="./asset/facebook.png" alt="Facebook Icon" class="icon">
                         <div class="counter" data-target="1000">0</div>
                         <p>Facebook Followers</p>
                     </div>
  
                     <!-- Youtube -->
                     <div class="stat-item">
-                        <img src="youtube.png" alt="Youtube Icon" class="icon">
+                        <img src="./asset/youtube.png" alt="Youtube Icon" class="icon">
                         <div class="counter" data-target="500">0</div>
                         <p>Youtube Followers</p>
                     </div>
 
                     <!-- Instagram -->
                     <div class="stat-item">
-                        <img src="instagram.png" alt="Instagram Icon" class="icon">
+                        <img src="./asset/instagram.png" alt="Instagram Icon" class="icon">
                         <div class="counter" data-target="1000">0</div>
                         <p>Instagram Followers</p>
                     </div>
@@ -182,25 +185,25 @@
             <div class="reach-card5">
                 <div class="stats">
                     <div class="stat-item5">
-                       <a href="https://mybharat.gov.in/"  target="_blank"><img src="./mybharat.png" alt="Volunteers Icon" class="icon5"></a> 
+                       <a href="https://mybharat.gov.in/"  target="_blank"><img src="./asset/mybharat.png" alt="Volunteers Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
-                       <a href="https://samayurveda.in/"  target="_blank"><img src="./sam ayurvedic.png" alt="Happy Children Icon" class="icon5"></a> 
+                       <a href="https://samayurveda.in/"  target="_blank"><img src="./asset/sam ayurvedic.png" alt="Happy Children Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
-                       <a href="https://redcrossmp.org/"  target="_blank"><img src="./INDIAN-RED-CROSS-SOCIETY-BL.png" alt="News Highlights Icon" class="icon5"></a> 
+                       <a href="https://redcrossmp.org/"  target="_blank"><img src="./asset/INDIAN-RED-CROSS-SOCIETY-BL.png" alt="News Highlights Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
-                       <a href="https://www.jnchrc.com/"  target="_blank"><img src="jawaharlal nehru cancer hospital.png" alt="Facebook Icon" class="icon5"></a> 
+                       <a href="https://www.jnchrc.com/"  target="_blank"><img src="./asset/jawaharlal nehru cancer hospital.png" alt="Facebook Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
-                        <a href="https://www.aiimsbhopal.edu.in/"  target="_blank"><img src="AIIMS Bhopal.png" alt="Youtube Icon" class="icon5"></a>
+                        <a href="https://www.aiimsbhopal.edu.in/"  target="_blank"><img src="./asset/AIIMS Bhopal.png" alt="Youtube Icon" class="icon5"></a>
                     </div>
                     <div class="stat-item5">
-                       <a href="https://bmhrc.ac.in/"  target="_blank"><img src="bmhrc.png" alt="Instagram Icon" class="icon5"></a> 
+                       <a href="https://bmhrc.ac.in/"  target="_blank"><img src="./asset/bmhrc.png" alt="Instagram Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
-                       <a href="https://aawaj.org/"  target="_blank"><img src="aawaj.png" alt="Instagram Icon" class="icon5"></a> 
+                       <a href="https://aawaj.org/"  target="_blank"><img src="./asset/aawaj.png" alt="Instagram Icon" class="icon5"></a> 
                     </div>
                     <div class="stat-item5">
                        <a  href="https://www.instagram.com/nss_bu_bhopal_mp_/"  target="_blank"><h4>NSS BU Bhopal</h4></a> 
@@ -222,23 +225,23 @@
             <div class="marquee-container">
               <div class="marquee-content">
                 <!-- First set of 8 images -->
-                <div class="marquee-item"><img src="sam-dan activities.png" alt="Activity 1"></div>
-                <div class="marquee-item"><img src="blanket donation activities.png" alt="Activity 2"></div>
-                <div class="marquee-item"><img src="orientation activities.png" alt="Activity 3"></div>
-                <div class="marquee-item"><img src="blood donation activity.jpg" alt="Activity 4"></div>
-                <div class="marquee-item"><img src="plastic free awarness.png" alt="Activity 5"></div>
-                <div class="marquee-item"><img src="plantation activities.png" alt="Activity 6"></div>
-                <div class="marquee-item"><img src="literacy development drive.png" alt="Activity 7"></div>
-                <div class="marquee-item"><img src="world enviroment day activities.png" alt="Activity 8"></div>
+                <div class="marquee-item"><img src="./asset/food donation drive.png" alt="Activity 1"></div>
+                <div class="marquee-item"><img src="./asset/blanket donation activities.png" alt="Activity 2"></div>
+                <div class="marquee-item"><img src="./asset/orientation activities.png" alt="Activity 3"></div>
+                <div class="marquee-item"><img src="./asset/blood donation activity.jpg" alt="Activity 4"></div>
+                <div class="marquee-item"><img src="./asset/plastic free awarness.png" alt="Activity 5"></div>
+                <div class="marquee-item"><img src="./asset/plantation activities.png" alt="Activity 6"></div>
+                <div class="marquee-item"><img src="./asset/literacy development drive.png" alt="Activity 7"></div>
+                <div class="marquee-item"><img src="./asset/world enviroment day activities.png" alt="Activity 8"></div>
                 <!-- Duplicate set for infinite scroll -->
-                <div class="marquee-item"><img src="sam-dan activities.png" alt="Activity 1"></div>
-                <div class="marquee-item"><img src="blanket donation activities.png" alt="Activity 2"></div>
-                <div class="marquee-item"><img src="orientation activities.png" alt="Activity 3"></div>
-                <div class="marquee-item"><img src="blood donation activity.jpg" alt="Activity 4"></div>
-                <div class="marquee-item"><img src="plastic free awarness.png" alt="Activity 5"></div>
-                <div class="marquee-item"><img src="plantation activities.png" alt="Activity 6"></div>
-                <div class="marquee-item"><img src="literacy development drive.png" alt="Activity 7"></div>
-                <div class="marquee-item"><img src="world enviroment day activities.png" alt="Activity 8"></div>
+                <div class="marquee-item"><img src="./asset/food donation drive.png" alt="Activity 1"></div>
+                <div class="marquee-item"><img src="./asset/blanket donation activities.png" alt="Activity 2"></div>
+                <div class="marquee-item"><img src="./asset/orientation activities.png" alt="Activity 3"></div>
+                <div class="marquee-item"><img src="./asset/blood donation activity.jpg" alt="Activity 4"></div>
+                <div class="marquee-item"><img src="./asset/plastic free awarness.png" alt="Activity 5"></div>
+                <div class="marquee-item"><img src="./asset/plantation activities.png" alt="Activity 6"></div>
+                <div class="marquee-item"><img src="./asset/literacy development drive.png" alt="Activity 7"></div>
+                <div class="marquee-item"><img src="./asset/world enviroment day activities.png" alt="Activity 8"></div>
               </div>
               <div class="overlay2">
                   <div id="over-text">
@@ -250,8 +253,6 @@
             </div>
           </div>
         </div>
-
-
         <footer class="footer">
             <div class="footer-container">
 
