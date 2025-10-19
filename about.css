@@ -1771,6 +1771,6 @@ body{
 
 @media (max-width: 768px){
   *{
-    overflow: hidden;
+    overflow-x: hidden;
   }
 }
