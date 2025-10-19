@@ -8,23 +8,34 @@
   src: url(./font/plain-light-webfont.ttf);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    font-family: 'Plain Light';
-}
+
 
 html, body {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(14, 14, 14);
+  overflow-x: hidden; /* no need for !important */
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgb(14, 14, 14);
 }
 
-body{
-    overflow-x: hidden;
-}  
+*, *::before, *::after {
+  box-sizing: inherit; /* keep consistent sizing */
+  font-family: 'Plain Light';
+  margin: 0;
+    padding: 0;
+}
+
+/* optional safety for images and text */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+p, h1, h2, h3 {
+  word-break: break-word;
+}
+
+
+
 
 
 /* Navbar Styles */
@@ -32,7 +43,7 @@ body{
     position: fixed; /* Sticky at top */
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     background: -webkit-gradient(linear, left top, right top, from(#141414), color-stop(#2a2a2a), to(#141414));
     background: -o-linear-gradient(left, #141414, #2a2a2a, #141414);
     background: linear-gradient(to right, #141414, #2a2a2a, #141414);
@@ -194,7 +205,7 @@ body{
         -webkit-box-align: center;
             -ms-flex-align: center;
                 align-items: center;
-        gap: 2vh;
+        gap: 6.4vh;
         padding-top: 5vh;
         -webkit-transition: left 0.3s ease;
         -o-transition: left 0.3s ease;
@@ -213,7 +224,7 @@ body{
     }
 
     .nav-menu li a {
-        font-size: 4vw; /* Larger on mobile */
+        font-size: 6vw; /* Larger on mobile */
         padding: 2vh 0;
         width: 100vw;
         text-align: center;
@@ -1566,7 +1577,7 @@ body{
   font-size: 1.5vw;
   font-weight: bold;
   padding: 1vh 2vw;
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
   -webkit-box-shadow: 0 0 10px #ff9933;
           box-shadow: 0 0 10px #ff9933;
@@ -1738,7 +1749,7 @@ body{
   .developer-btn {
     font-size: 5vw;
     padding: 2vh 6vw;
-    border-radius: 10px;
+    border-radius: 50px;
   }
 
   .blink {
@@ -1769,8 +1780,8 @@ body{
   }
 }
 
-@media (max-width: 768px){
+/* @media (max-width: 768px){
   *{
     overflow-x: hidden;
   }
-}
+} */

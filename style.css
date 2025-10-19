@@ -8,23 +8,29 @@
   src: url(./font/plain-light-webfont.ttf);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    font-family: 'Plain Light';
-}
-
 html, body {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(14, 14, 14);
+  overflow-x: hidden; /* no need for !important */
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgb(14, 14, 14);
 }
 
-body{
-    overflow-x: hidden;
-}   
+*, *::before, *::after {
+  box-sizing: inherit; /* keep consistent sizing */
+  font-family: 'Plain Light';
+  margin: 0;
+    padding: 0;
+}
+
+/* optional safety for images and text */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+p, h1, h2, h3 {
+  word-break: break-word;
+}
 
 /* Navbar Styles */
 .navbar {
@@ -214,7 +220,7 @@ body{
     }
 
     .nav-menu li a {
-        font-size: 4vw; /* Larger on mobile */
+        font-size: 6vw; /* Larger on mobile */
         padding: 2vh 0;
         width: 100vw;
         text-align: center;
@@ -1983,7 +1989,7 @@ p {
   .developer-btn {
     font-size: 5vw;
     padding: 2vh 6vw;
-    border-radius: 10px;
+    border-radius: 50px;
   }
 
   .blink {
@@ -2057,7 +2063,8 @@ p {
       background: #111;
       border: 0.2vw solid #333;
       border-radius: 2vw;
-      width: 25vw;
+      width: 40vw;
+      min-height: fit-content;
       padding: 3vh 2vw;
       -webkit-box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.5);
               box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.5);
@@ -2075,17 +2082,17 @@ p {
       border-color: #ff9933;
     }
 
-    .profile-pic img {
-      width: 50%;
-      height: 30%;
-      border-radius: 50%;
-      -o-object-fit: cover;
-         object-fit: cover;
-      -o-object-position: center;
-         object-position: center;
-      margin-bottom: 2vh;
-      border: 0.3vw solid #ff9933;
-    }
+ .profile-pic img {
+  width: 13vw;            /* scales with screen width */
+  height: 13vw;           /* same height as width for perfect circle */
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  border: 0.3vw solid #ff9933;
+  display: block;
+  margin: 0 auto 2vh;
+}
+
 
     .team-card h2 {
       font-size: 1.7vw;
@@ -2135,8 +2142,13 @@ p {
     @media (max-width: 768px) {
       .team-card {
         width: 80vw;
+        height: fit-content;
         padding: 4vh 4vw;
         margin-top: 2vh;
+      }
+      .profile-pic img {
+        width: 25vw;
+        height: 25vw;
       }
 
       .team-card h2 {
@@ -3496,8 +3508,8 @@ a > .card {
 
 /* ---------------- TEAM END ---------------- */
 
-@media (max-width: 768px){
+/* @media (max-width: 768px){
   *{
     overflow-x: hidden;
   }
-}
+} */
