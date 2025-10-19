@@ -10,7 +10,6 @@
 
 html, body {
   overflow-x: hidden; /* no need for !important */
-  overflow-y: auto;
   width: 100%;
   box-sizing: border-box;
   background-color: rgb(14, 14, 14);
@@ -35,6 +34,7 @@ p, h1, h2, h3 {
 
 /* Navbar Styles */
 .navbar {
+    overflow: hidden;
     position: fixed; /* Sticky at top */
     top: 0;
     left: 0;
