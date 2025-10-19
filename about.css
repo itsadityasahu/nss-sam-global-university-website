@@ -1768,3 +1768,9 @@ body{
     margin-bottom: 3vw;
   }
 }
+
+@media (max-width: 768px){
+  *{
+    overflow: hidden;
+  }
+}
