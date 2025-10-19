@@ -3495,3 +3495,9 @@ a > .card {
 }
 
 /* ---------------- TEAM END ---------------- */
+
+@media (max-width: 768px){
+  *{
+    overflow-x: hidden;
+  }
+}
