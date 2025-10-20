@@ -294,7 +294,7 @@ p, h1, h2, h3 {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: 0 80%;
-     object-position: 0 150%;
+     object-position: 0 120%;
 }
 
 
@@ -432,20 +432,20 @@ p, h1, h2, h3 {
   }
   /* Slides */
   .slide {
-    height: 80dvh;
+    height: 85dvh;
   }
 
   .slide img {
     -o-object-position: center 80%;
-       object-position: center 80%; 
-    margin-top: 0vw;
+       object-position: center 0%; 
+    margin-top: -15vh;
   }
 
   /* Overlay container */
   .overlay {
     width: 90%;
     left: 5%;
-    bottom: 19%;
+    bottom: 35%;
     /* gap: 2vh; */
   }
 
@@ -1518,6 +1518,7 @@ p {
 
 .footer {
   height: 70vh;
+  overflow: hidden;
   background-color: #151211;
   padding: 4vw 6vw 0vw 6vw;
   display: -webkit-box;
