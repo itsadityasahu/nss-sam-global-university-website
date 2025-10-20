@@ -533,9 +533,9 @@ p, h1, h2, h3 {
 /* ---------------- RESPONSIVENESS ---------------- */
 @media (max-width: 768px) {
   #page2 {
-    min-height: 42vh;
+    min-height: 47vh;
     padding: 0vh 6vw;
-    margin-bottom: 4vh;
+    margin-bottom: -2vh;
   }
 
   #myVide{
