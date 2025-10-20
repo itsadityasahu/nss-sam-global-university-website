@@ -518,6 +518,7 @@ p, h1, h2, h3 {
   position: absolute;
   left: 12%;
   top: 6%;
+  margin-bottom: 3vh;
   /* margin-top: 5vh; */
 }
 #myVideo {
