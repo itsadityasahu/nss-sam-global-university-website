@@ -180,22 +180,38 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 
-  // ---------- ACTIVE NAV LINK ----------
-  let currentPath = window.location.pathname.split("/").pop();
-  if (currentPath === "" || currentPath === "index.html") {
-    currentPath = "index.html"; // adjust if homepage file name differs
+ // ---------- ACTIVE NAV LINK ----------
+const navLinkss = document.querySelectorAll(".navbar a");
+
+// Get the current page path
+let currentPath = window.location.pathname.split("/").pop();
+
+// Normalize for local + hosted URLs
+if (currentPath === "" || currentPath === "index" || currentPath === "index.html") {
+  currentPath = "index";
+} else if (currentPath.endsWith(".html")) {
+  currentPath = currentPath.replace(".html", "");
+}
+
+// Match and highlight the correct nav link
+navLinkss.forEach(link => {
+  let href = link.getAttribute("href") || "";
+  href = href.replace(".html", "").replace("/", "");
+
+  if (href === currentPath) {
+    link.classList.add("active");
+  } else {
+    link.classList.remove("active");
   }
 
-  navLinks.forEach(link => {
-    const href = link.getAttribute("href");
-    if (href === currentPath) link.classList.add("active");
-    else link.classList.remove("active");
-
-    link.addEventListener("click", () => {
-      navLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
-    });
+  // Instant highlight on click
+  link.addEventListener("click", () => {
+    navLinkss.forEach(l => l.classList.remove("active"));
+    link.classList.add("active");
   });
+});
+
+
 
   // ---------- DEVELOPER TEAM BUTTON ----------
   const developerBtn = document.getElementById("developerBtn");

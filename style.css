@@ -492,7 +492,7 @@ p, h1, h2, h3 {
 #page2{
   min-height: 100vh;
   width: 100vw;
-  padding: 18vh 12vw;
+  padding: 17vh 12vw;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -525,7 +525,7 @@ p, h1, h2, h3 {
   height: fit-content;
   display: block;
   margin: 0 auto;
-  margin-top: 10vh;
+  margin-top: 2vh;
   border-radius: 2px; /* optional styling */
 }
 
@@ -570,7 +570,7 @@ p, h1, h2, h3 {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 2vw;
-  margin-top: -8vh;
+  margin-top: -21vh;
 }
 
 #up{

@@ -791,7 +791,7 @@ p, h1, h2, h3 {
 
 .unlock-btn {
     position: absolute;
-    bottom: 6vh;
+    bottom: 4vh;
     left: 51%;
     padding: 1vw 1.5vw;
     font-size: 1.3vw;
