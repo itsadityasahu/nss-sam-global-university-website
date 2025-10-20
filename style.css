@@ -425,6 +425,7 @@ p, h1, h2, h3 {
   /* Page container */
   #page1 {
     min-height: 80dvh;
+    background-color: #141414;
   }
 
   .dark-overlay {
@@ -433,6 +434,7 @@ p, h1, h2, h3 {
   /* Slides */
   .slide {
     height: 85dvh;
+    background-color: #141414;
   }
 
   .slide img {
